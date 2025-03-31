@@ -1,4 +1,4 @@
-# Obliczenie zapotrzebowania VRAM dla modeli LLM
+# Modele LLM
 
 **Wzór:**  
 `VRAM [GB] = (Parametry * Bajty na parametr * 1.2) / 1e9`  
