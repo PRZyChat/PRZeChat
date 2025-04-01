@@ -59,3 +59,22 @@ vllm serve ~/data/models/qwen2.5-32b-instruct \
   --host 0.0.0.0 \
   --port 8000 \
 ```
+
+## Komendy do uruchamienia modeli z kwantyzacją AWQ:
+
+### 1. llama3-70b-instruct
+```bash
+vllm serve ~/data/models/llama3-70b-instruct-awq \
+    --quantization awq \
+    --tensor-parallel-size 2 \
+    --host 0.0.0.0 --port 8000
+```
+
+### 2. qwen2-72b-instruct
+```bash
+vllm serve ~/data/models/qwen2-72b-instruct-awq \
+    --quantization awq \
+    --tensor-parallel-size 2 \
+    --host 0.0.0.0 --port 8000
+```
+
