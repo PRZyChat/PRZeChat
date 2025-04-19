@@ -54,7 +54,7 @@ vllm serve ~/data/models/mistral-small-24b-instruct-2501 \
 
 ### 1. llama3-70b-instruct
 ```bash
-vllm serve ~/data/models/llama3-70b-instruct-awq \
+vllm serve ~/data/models/llama-3-70b-instruct-awq \
     --quantization awq \
     --tensor-parallel-size 2 \
     --host 0.0.0.0 --port 8000
