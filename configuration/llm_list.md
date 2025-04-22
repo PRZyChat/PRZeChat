@@ -91,7 +91,7 @@ vllm serve ~/data/models/llama-3-70b-instruct-awq \
   --port 8000 \
   --served-model-name vllm/llama-3-70b-instruct-awq
 ```
-### qwen2-72b-instruct
+### qwen2.5-32b-instruct
 ```bash
 vllm serve ~/data/models/qwen2.5-32b-instruct \
   --tensor-parallel-size 2 \
@@ -106,9 +106,9 @@ vllm serve ~/data/models/qwen2.5-32b-instruct \
 ```
 
 
-### qwen2-72b-instruct
+### qwen2-72b-instruct (nie działa ) 
 ```bash
-vllm serve ~/data/models/qwen2.5-32b-instruct \
+vllm serve ~/data/models/qwen2-72b-instruct \
   --tensor-parallel-size 2 \
   --gpu-memory-utilization 0.95 \
   --num-gpu-blocks-override 1000 \
@@ -117,7 +117,7 @@ vllm serve ~/data/models/qwen2.5-32b-instruct \
   --max-num-batched-tokens 1000 \
   --host 0.0.0.0 \
   --port 8000 \
-  --served-model-name vllm/qwen2.5-32b-instruct
+  --served-model-name vllm/qwen2-72b-instruct
 ```
 
 ### qwen2-72b-instruct-awq
