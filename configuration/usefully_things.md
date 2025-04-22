@@ -10,3 +10,33 @@ By default, huggingface_hub uses the Python-based requests.get and requests.post
 
 1. Specify the hf_transfer extra when installing huggingface_hub (e.g. `pip install huggingface_hub[hf_transfer]`).
 2. Set `HF_HUB_ENABLE_HF_TRANSFER=1` as an environment variable.
+
+
+vllm serve \
+  --model /home/llm/data/models/deepSeek-v2-lite-chat \
+  --device cuda \
+  --tensor-parallel-size 2 \
+  --max-num-batched-tokens 2048 \
+ --host 0.0.0.0 \ 
+--port 8000 \
+--gpu-memory-utilization 0.98 \
+--quantization fp16 \
+
+
+vllm serve /home/llm/data/models/qwen2-72b-instruct \    
+  --device cuda \
+  --tensor-parallel-size 2 \
+  --max-num-batched-tokens 2048 \
+  --host 0.0.0.0 \
+  --port 8000 \
+  --trust-remote-code \        
+  --gpu-memory-utilization 0.98 \
+  --quantization moe_wna16 
+
+
+
+# usefull flags vllm serve
+1.  ```
+    --max-num-seqs = 10 
+    ```
+  This falg set max batch size to 10.

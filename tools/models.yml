@@ -1,0 +1,9 @@
+models:
+  - name: /home/llm/data/models/deepSeek-v2-lite-chat
+  - name: /home/llm/data/models/llama-3-70b-instruct-awq
+  - name: /home/llm/data/models/llama3-70b-instruct
+  - name: /home/llm/data/models/mistral-small-24b-instruct-2501
+  - name: /home/llm/data/models/qwen2-72b-instruct
+#    target_kv_gb: 4  # flag to calculate the target kv
+  - name: /home/llm/data/models/qwen2-72b-instruct-awq
+  - name: /home/llm/data/models/qwen2.5-32b-instruct
