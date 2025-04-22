@@ -33,38 +33,104 @@ Modele znajdują się w **~/data/models/**
 
 ## Komendy do uruchamienia modeli bez kwantyzacji:
 
-### 1. deepSeek-v2-lite-chat
+### deepSeek-v2-lite-chat
 
 ```bash
 vllm serve ~/data/models/deepSeek-v2-lite-chat \
-    --tensor-parallel-size 2 \
-    --host 0.0.0.0 --port 8000
+  --tensor-parallel-size 2 \
+  --gpu-memory-utilization 0.95 \
+  --num-gpu-blocks-override 1000 \
+  --trust-remote-code \
+  --max-num-seqs 10 \
+  --swap-space 200 \
+  --max-num-batched-tokens 1000 \
+  --host 0.0.0.0 \
+  --port 8000 \
+  --served-model-name vllm/deepSeek-v2-lite-chat
 ```
 
-### 2. mistral-small-24b-instruct-2501
+### mistral-small-24b-instruct-2501
 
 ```bash
 vllm serve ~/data/models/mistral-small-24b-instruct-2501 \
   --tensor-parallel-size 2 \
+  --gpu-memory-utilization 0.95 \
+  --num-gpu-blocks-override 1000 \
+  --max-num-seqs 10 \
+  --swap-space 200 \
+  --max-num-batched-tokens 1000 \
   --host 0.0.0.0 \
-  --port 8000
+  --port 8000 \
+  --served-model-name vllm/mistral-small-24b-instruct-2501
 ```
 
-## Komendy do uruchamienia modeli z kwantyzacją AWQ:
+### llama3-70b-instruct
+```bash
+vllm serve ~/data/models/llama-3-70b-instruct \
+  --tensor-parallel-size 2 \
+  --gpu-memory-utilization 0.95 \
+  --num-gpu-blocks-override 1000 \
+  --max-num-seqs 10 \
+  --swap-space 200 \
+  --max-num-batched-tokens 1000 \
+  --host 0.0.0.0 \
+  --port 8000 \
+  --served-model-name llama-3-70b-instruct
+```
 
-### 1. llama3-70b-instruct
+### llama3-70b-instruct-awq
 ```bash
 vllm serve ~/data/models/llama-3-70b-instruct-awq \
-    --quantization awq \
-    --tensor-parallel-size 2 \
-    --host 0.0.0.0 --port 8000
+  --tensor-parallel-size 2 \
+  --gpu-memory-utilization 0.95 \
+  --num-gpu-blocks-override 1000 \
+  --max-num-seqs 10 \
+  --swap-space 200 \
+  --max-num-batched-tokens 1000 \
+  --host 0.0.0.0 \
+  --port 8000 \
+  --served-model-name vllm/llama-3-70b-instruct-awq
+```
+### qwen2-72b-instruct
+```bash
+vllm serve ~/data/models/qwen2.5-32b-instruct \
+  --tensor-parallel-size 2 \
+  --gpu-memory-utilization 0.95 \
+  --num-gpu-blocks-override 1000 \
+  --max-num-seqs 10 \
+  --swap-space 200 \
+  --max-num-batched-tokens 1000 \
+  --host 0.0.0.0 \
+  --port 8000 \
+  --served-model-name vllm/qwen2.5-32b-instruct 
 ```
 
-### 2. qwen2-72b-instruct
+
+### qwen2-72b-instruct
+```bash
+vllm serve ~/data/models/qwen2-72b-instruct \
+  --tensor-parallel-size 2 \
+  --gpu-memory-utilization 0.95 \
+  --num-gpu-blocks-override 1000 \
+  --max-num-seqs 10 \
+  --swap-space 200 \
+  --max-num-batched-tokens 1000 \
+  --host 0.0.0.0 \
+  --port 8000 \
+  --served-model-name vllm/qwen2-72b-instruct
+```
+
+### qwen2-72b-instruct-awq
 ```bash
 vllm serve ~/data/models/qwen2-72b-instruct-awq \
-    --quantization awq \
-    --tensor-parallel-size 2 \
-    --host 0.0.0.0 --port 8000
+  --tensor-parallel-size 2 \
+  --gpu-memory-utilization 0.95 \
+  --num-gpu-blocks-override 1000 \
+  --max-num-seqs 10 \
+  --swap-space 200 \
+  --max-num-batched-tokens 1000 \
+  --host 0.0.0.0 \
+  --port 8000 \
+  --served-model-name vllm/qwen2-72b-instruct-awq
 ```
 

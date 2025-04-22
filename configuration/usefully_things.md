@@ -12,35 +12,31 @@ By default, huggingface_hub uses the Python-based requests.get and requests.post
 2. Set `HF_HUB_ENABLE_HF_TRANSFER=1` as an environment variable.
 
 
-vllm serve \
-  --model /home/llm/data/models/deepSeek-v2-lite-chat \
-  --device cuda \
-  --tensor-parallel-size 2 \
-  --max-num-batched-tokens 2048 \
- --host 0.0.0.0 \ 
---port 8000 \
---gpu-memory-utilization 0.98 \
---quantization fp16 \
-
-
-vllm serve /home/llm/data/models/qwen2-72b-instruct \    
-  --device cuda \
-  --tensor-parallel-size 2 \
-  --max-num-batched-tokens 2048 \
-  --host 0.0.0.0 \
-  --port 8000 \
-  --trust-remote-code \        
-  --gpu-memory-utilization 0.98 \
-  --quantization moe_wna16 
 
 ```shell
-vllm serve ~/data/models/mistral-small-24b-instruct-2501 \
+  vllm serve ~/data/models/mistral-small-24b-instruct-2501 \
   --tensor-parallel-size 2 \
-  --kv-cache-dtype 'fp8' \
-  --block-size 16 \
-  --num-gpu-blocks-override 983 \
+  --gpu-memory-utilization 0.8 \
+  --num-gpu-blocks-override 1000 \
+  --max-num-seqs 10 \
+  --swap-space 200 \
+  --max-num-batched-tokens 1000 \
   --host 0.0.0.0 \
-  --port 8000 
+  --port 8000 \
+  --served-model-name vllm/mistral-small-24b-instruct-2501
+```
+
+```shell
+  vllm serve ~/data/models/qwen2-72b-instruct-awq \
+  --tensor-parallel-size 2 \
+  --gpu-memory-utilization 0.8 \
+  --num-gpu-blocks-override 1000 \
+  --max-num-seqs 10 \
+  --swap-space 200 \
+  --max-num-batched-tokens 1000 \
+  --host 0.0.0.0 \
+  --port 8000 \
+  --served-model-name vllm/qwen2-72b-instruct-awq
 ```
 
                   [--kv-cache-dtype {auto,fp8,fp8_e4m3,fp8_e5m2}]
