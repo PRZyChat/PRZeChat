@@ -66,7 +66,7 @@ vllm serve ~/data/models/mistral-small-24b-instruct-2501 \
 
 ### llama3-70b-instruct
 ```bash
-vllm serve ~/data/models/llama-3-70b-instruct \
+vllm serve ~/data/models/llama3-70b-instruct \
   --tensor-parallel-size 2 \
   --gpu-memory-utilization 0.95 \
   --num-gpu-blocks-override 1000 \
@@ -75,7 +75,7 @@ vllm serve ~/data/models/llama-3-70b-instruct \
   --max-num-batched-tokens 1000 \
   --host 0.0.0.0 \
   --port 8000 \
-  --served-model-name llama-3-70b-instruct
+  --served-model-name llama3-70b-instruct
 ```
 
 ### llama3-70b-instruct-awq
