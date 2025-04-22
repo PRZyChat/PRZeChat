@@ -33,6 +33,21 @@ vllm serve /home/llm/data/models/qwen2-72b-instruct \
   --gpu-memory-utilization 0.98 \
   --quantization moe_wna16 
 
+```shell
+vllm serve ~/data/models/mistral-small-24b-instruct-2501 \
+  --tensor-parallel-size 2 \
+  --kv-cache-dtype 'fp8' \
+  --block-size 16 \
+  --num-gpu-blocks-override 983 \
+  --host 0.0.0.0 \
+  --port 8000 
+```
+
+                  [--kv-cache-dtype {auto,fp8,fp8_e4m3,fp8_e5m2}]
+                  [--num-gpu-blocks-override NUM_GPU_BLOCKS_OVERRIDE]
+                  [--block-size {8,16,32,64,128}]
+
+
 
 
 # usefull flags vllm serve
