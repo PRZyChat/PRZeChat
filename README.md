@@ -1,2 +1,2 @@
-# PRZyChat
+# PRZeChat
 tal
